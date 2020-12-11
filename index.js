@@ -5,6 +5,10 @@ if (cluster.isMaster) {
 
     //Cause index.js to be executed **again** child mode
     cluster.fork();
+    
+    cluster.fork();
+    cluster.fork();
+    cluster.fork();
 } else {
 
     //In a child Im going to act like a server && do not nothing else
@@ -24,6 +28,10 @@ if (cluster.isMaster) {
 
         res.send('Hello Sourav');
     })
+    App.get("/first", function (req, res) {
+        res.send('How fast is this !!');
+    })
+
     let Port = 2020;
     App.listen(Port, function () {
         console.log(`server Run ${Port}`);
